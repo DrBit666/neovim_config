@@ -2,9 +2,10 @@ return {
   {
     "f-person/git-blame.nvim",
   },
-  {
-    "fatih/vim-go",
-  },
+  -- {
+  --   "fatih/vim-go",
+  --   build = "GoInstallBinaries",
+  -- },
   -- add symbols-outline
   {
     "simrat39/symbols-outline.nvim",
