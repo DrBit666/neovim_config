@@ -20,17 +20,16 @@ end
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+-- exit insert mode
 keymap.set({ "i", "v" }, "jk", "<esc>", opts)
 
-keymap.set("n", "<F11>", [[<Cmd>set spell!<CR>]], opts)
--- clipboard
--- vim.keymap.del({ "n", "v" }, "Y")
+-- better use clipboard
 keymap.set({ "n", "v" }, "Y", '"my', opts)
-
 keymap.set({ "n", "v" }, "P", '"mp', opts)
 
+-- copy oath
 keymap.set("n", "cp", RelativePath, opts)
-
 keymap.set("n", "cpa", AbsolutePath, opts)
 
+-- copy sha to cliboard
 keymap.set("n", "<Leader>gC", require("gitblame").copy_sha_to_clipboard, opts)
