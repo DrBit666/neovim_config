@@ -6,7 +6,6 @@ function RelativePath()
   local path = vim.fn.expand("%:p:h") -- path of current file(except file)
   local file = vim.fn.expand("%:t") -- file name
   local relative_path = vim.fn.fnamemodify(path .. "/" .. file, ":~:.") -- build relative path
-
   vim.fn.setreg("+", relative_path) -- copy relative path to cliboard
   vim.notify('Copied relative_path"' .. relative_path .. '" to the clipboard!')
 end
@@ -33,3 +32,9 @@ keymap.set("n", "cpa", AbsolutePath, opts)
 
 -- copy sha to cliboard
 keymap.set("n", "<Leader>gC", require("gitblame").copy_sha_to_clipboard, opts)
+
+-- neoscroll
+local t = {}
+t["<C-b>"] = { "scroll", { "-vim.wo.scroll", "true", "250" } }
+t["<C-f>"] = { "scroll", { "vim.wo.scroll", "true", "250" } }
+require("neoscroll.config").set_mappings(t)

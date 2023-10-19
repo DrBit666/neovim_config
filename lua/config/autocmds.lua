@@ -8,3 +8,4 @@
 --   local current_line_commitId = require("gitblame").current_line_commitId --get current_line_sha
 --   return "git diff " .. current_line_commitId .. "^.." .. current_line_commitId .. " -- " .. relative_path
 -- end, {})
+--

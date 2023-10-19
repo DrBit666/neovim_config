@@ -16,4 +16,7 @@ return {
   {
     "karb94/neoscroll.nvim",
   },
+  -- {
+  --   "dstein64/nvim-scrollview",
+  -- },
 }
