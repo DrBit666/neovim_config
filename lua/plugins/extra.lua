@@ -16,12 +16,12 @@ return {
   {
     "karb94/neoscroll.nvim",
   },
-  -- {
-  --   "dstein64/nvim-scrollview",
-  -- },
   {
     "mfussenegger/nvim-lint",
   },
+  -- {
+  --   "dstein64/nvim-scrollview",
+  -- },
   -- {
   --   "kristijanhusak/vim-dadbod-completion",
   --   dependencies = {
