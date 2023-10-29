@@ -19,6 +19,8 @@ end
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+--del
+
 -- exit insert mode
 keymap.set({ "i", "v" }, "jk", "<esc>", opts)
 
@@ -38,37 +40,3 @@ local t = {}
 t["<C-b>"] = { "scroll", { "-vim.wo.scroll", "true", "250" } }
 t["<C-f>"] = { "scroll", { "vim.wo.scroll", "true", "250" } }
 require("neoscroll.config").set_mappings(t)
-
-function Test()
-  local params = vim.lsp.util.make_position_params()
-  local result = vim.lsp.buf_request_sync(0, "textDocument/signatureHelp", params)
-  if result and result[0] then
-    local signatures = result[1].result.signatures
-    if signatures and #signatures > 0 then
-      local parameters = signatures[1].parameters
-      if parameters and #parameters > 0 then
-        local parameterTypes = {}
-        for _, parameter in ipairs(parameters) do
-          if type(parameter.label) == "string" then
-            table.insert(parameterTypes, parameter.label)
-          end
-        end
-
-        local parameterTypesString = table.concat(parameterTypes, ", ")
-        vim.fn.setreg("+", parameterTypesString)
-        print("Parameter types copied to clipboard.")
-      else
-        print("No parameters found.")
-      end
-    else
-      print("No signatures found.")
-    end
-  else
-    print("Signature help request failed.")
-  end
-end
-
---lsp
-keymap.set("n", "<Leader>88", Test)
-
-keymap.set("n", "<Leader>99", vim.lsp.buf.hover)

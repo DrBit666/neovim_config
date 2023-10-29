@@ -38,29 +38,3 @@ ls.add_snippets("go", {
     t({ "}" }),
   }),
 })
-
--- ls.add_snippets("all", {
---   s("swag", {
---     t("// @Description "),
---     i(1),
---     t({ " ", "" }),
---     t("// @Tags "),
---     i(2),
---     t({ " ", "" }),
---     t({ "// @Accept json", "" }),
---     t({ "// @Produce json", "" }),
---     t('// @Param id path int true "合同模板ID"'),
---     t({ " ", "" }),
---     t("// @Param body body "),
---     i(3),
---     t(' true "更新合同模板状态参数"', ""),
---     t("// @Success 200 {object} http.Response{data="),
---     i(4),
---     t('} "请求成功"', ""),
---     t('// @Failure 400 {object} http.Response{} "参数有误"', ""),
---     t('// @Failure 500 {object} http.Response{} "服务器内部错误"', ""),
---     t("// @Router"),
---     i(5),
---     t("   "),
---   }),
--- })
