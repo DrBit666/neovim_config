@@ -40,3 +40,9 @@ local t = {}
 t["<C-b>"] = { "scroll", { "-vim.wo.scroll", "true", "250" } }
 t["<C-f>"] = { "scroll", { "vim.wo.scroll", "true", "250" } }
 require("neoscroll.config").set_mappings(t)
+
+-- window
+keymap.set("n", "<F5>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+keymap.set("n", "<F6>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+keymap.set("n", "<F7>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+keymap.set("n", "<F8>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })

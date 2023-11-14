@@ -7,4 +7,8 @@ return {
       keys[#keys + 1] = { "<c-k>", mode = "i", false }
     end,
   },
+  {
+    "mfussenegger/nvim-jdtls",
+    ft = { "java" },
+  },
 }
