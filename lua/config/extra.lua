@@ -15,6 +15,42 @@ require("lint").linters_by_ft = {
   go = { "golangcilint" },
 }
 
+local i = require("neogen.types.template").item
+local annotation = {
+  { "func_name", " %s $1", { type = { "func" } } },
+  { "func_name", " %s $1", { type = { "func" } } },
+  { "param_name", " %s $1", { type = { "func" } } },
+}
+
+require("neogen").setup({
+  languages = {
+    -- go = {
+    --   template = {
+    --     annotation_convention = "my_annotation",
+    --     my_annotation = annotation,
+    --   },
+    -- },
+    go = require("config.neogen-go"),
+  },
+  snippet_engine = "luasnip",
+  enable_placeholders = true,
+  placeholders_hl = "DiagnosticHint",
+  placeholders_text = {
+    ["description"] = "[TODO:description]",
+    ["tparam"] = "[TODO:tparam]",
+    ["parameter"] = "[TODO:parameter]",
+    ["return"] = "[TODO:return]",
+    ["class"] = "[TODO:class]",
+    ["throw"] = "[TODO:throw]",
+    ["varargs"] = "[TODO:varargs]",
+    ["type"] = "[TODO:type]",
+    ["attribute"] = "[TODO:attribute]",
+    ["args"] = "[TODO:args]",
+    ["kwargs"] = "[TODO:kwargs]",
+    ["identifier"] = "[TODO:identifier]",
+  },
+})
+
 local null_ls = require("null-ls")
 
 local no_really = {
@@ -44,5 +80,34 @@ local no_really = {
     end,
   },
 }
+
+-- neotree
+require("neo-tree").setup({
+  filesystem = {
+    commands = {
+      copy_file_name = function(state)
+        local node = state.tree:get_node()
+        vim.fn.setreg("*", node.name, "c")
+      end,
+    },
+
+    bind_to_cwd = false,
+    follow_current_file = true,
+  },
+  window = {
+    mappings = {
+      ["<space>"] = "none",
+      ["Y"] = "copy_file_name",
+    },
+  },
+  default_component_configs = {
+    indent = {
+      with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+      expander_collapsed = "",
+      expander_expanded = "",
+      expander_highlight = "NeoTreeExpander",
+    },
+  },
+})
 
 null_ls.register(no_really)

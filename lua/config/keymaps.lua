@@ -16,6 +16,10 @@ function AbsolutePath()
   vim.notify('Copied absolute_path"' .. path .. '" to the clipboard!')
 end
 
+local function generate_func_annotation()
+  require("neogen").generate({})
+end
+
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
@@ -23,17 +27,17 @@ local opts = { noremap = true, silent = true }
 
 -- exit insert mode
 keymap.set({ "i", "v" }, "jk", "<esc>", opts)
-
 -- better use clipboard
-keymap.set({ "n", "v" }, "Y", '"my', opts)
-keymap.set({ "n", "v" }, "P", '"mp', opts)
+-- keymap.set({ "n", "v" }, "Y", '"my', opts)
+-- keymap.set({ "n", "v" }, "P", '"mp', opts)
+keymap.set({ "n", "v" }, "<C-d>", '"md', opts)
 
--- copy oath
+-- copy path
 keymap.set("n", "cp", RelativePath, opts)
 keymap.set("n", "cpa", AbsolutePath, opts)
 
 -- copy sha to cliboard
-keymap.set("n", "<Leader>gC", require("gitblame").copy_sha_to_clipboard, opts)
+-- keymap.set("n", "<Leader>gC", require("gitblame").copy_sha_to_clipboard, opts)
 
 -- neoscroll
 local t = {}
@@ -44,5 +48,48 @@ require("neoscroll.config").set_mappings(t)
 -- window
 keymap.set("n", "<F5>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 keymap.set("n", "<F6>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
-keymap.set("n", "<F7>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
-keymap.set("n", "<F8>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+keymap.set("n", "<F11>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+keymap.set("n", "<F12>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+
+keymap.set("n", "<F9>", generate_func_annotation)
+
+-- git
+keymap.set("n", "<leader>gn", "<cmd>lua package.loaded.gitsigns.next_hunk()<CR>", { desc = "Next Hunk" })
+keymap.set("n", "<leader>gp", "<cmd>lua package.loaded.gitsigns.prev_hunk()<CR>", { desc = "Prev Hunk" })
+
+-- dap
+vim.keymap.set("n", "<F9>", function()
+  require("dap").continue()
+end)
+vim.keymap.set("n", "<F8>", function()
+  require("dap").step_over()
+end)
+vim.keymap.set("n", "<F5>", function()
+  require("dap").step_into()
+end)
+vim.keymap.set("n", "<F6>", function()
+  require("dap").step_out()
+end)
+vim.keymap.set("n", "<Leader>lp", function()
+  require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+end)
+vim.keymap.set("n", "<Leader>dr", function()
+  require("dap").repl.open()
+end)
+vim.keymap.set("n", "<Leader>dl", function()
+  require("dap").run_last()
+end)
+vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
+  require("dap.ui.widgets").hover()
+end)
+vim.keymap.set({ "n", "v" }, "<Leader>dp", function()
+  require("dap.ui.widgets").preview()
+end)
+vim.keymap.set("n", "<Leader>df", function()
+  local widgets = require("dap.ui.widgets")
+  widgets.centered_float(widgets.frames)
+end)
+vim.keymap.set("n", "<Leader>ds", function()
+  local widgets = require("dap.ui.widgets")
+  widgets.centered_float(widgets.scopes)
+end)

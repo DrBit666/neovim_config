@@ -24,7 +24,7 @@ require("dap-go").setup({
     -- to start the process in a random available port
     port = "${port}",
     -- additional args to pass to dlv
-    args = {},
+    args = { ETCD_NAMESPACE = "meflow", ETCD_NS_PROJ = "controller" },
     -- the build flags that are passed to delve.
     -- defaults to empty string, but can be used to provide flags
     -- such as "-tags=unit" to make sure the test suite is
