@@ -46,8 +46,8 @@ t["<C-f>"] = { "scroll", { "vim.wo.scroll", "true", "250" } }
 require("neoscroll.config").set_mappings(t)
 
 -- window
-keymap.set("n", "<F5>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
-keymap.set("n", "<F6>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+-- keymap.set("n", "<C-F11>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+-- keymap.set("n", "<C-F12>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 keymap.set("n", "<F11>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 keymap.set("n", "<F12>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
@@ -58,16 +58,16 @@ keymap.set("n", "<leader>gn", "<cmd>lua package.loaded.gitsigns.next_hunk()<CR>"
 keymap.set("n", "<leader>gp", "<cmd>lua package.loaded.gitsigns.prev_hunk()<CR>", { desc = "Prev Hunk" })
 
 -- dap
-vim.keymap.set("n", "<F9>", function()
+vim.keymap.set("n", "<F8>", function()
   require("dap").continue()
 end)
-vim.keymap.set("n", "<F8>", function()
+vim.keymap.set("n", "<F7>", function()
   require("dap").step_over()
 end)
-vim.keymap.set("n", "<F5>", function()
+vim.keymap.set("n", "<leader><F7>", function()
   require("dap").step_into()
 end)
-vim.keymap.set("n", "<F6>", function()
+vim.keymap.set("n", "<leader><F8>", function()
   require("dap").step_out()
 end)
 vim.keymap.set("n", "<Leader>lp", function()
