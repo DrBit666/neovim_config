@@ -6,6 +6,19 @@ return {
       -- disable a keymap
       keys[#keys + 1] = { "<c-k>", mode = "i", false }
     end,
+    opts = {
+      servers = {
+        gopls = {
+          settings = {
+            gopls = {
+              analyses = {
+                fieldalignment = false,
+              },
+            },
+          },
+        },
+      },
+    },
   },
   {
     "mfussenegger/nvim-jdtls",

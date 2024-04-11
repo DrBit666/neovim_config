@@ -110,4 +110,8 @@ require("neo-tree").setup({
   },
 })
 
+require("codesnap").setup({
+  watermark = "",
+})
+
 null_ls.register(no_really)

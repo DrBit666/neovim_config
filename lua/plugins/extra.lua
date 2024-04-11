@@ -19,6 +19,10 @@ return {
   {
     "mfussenegger/nvim-lint",
   },
+  {
+    "voldikss/vim-translator",
+  },
+  { "mistricky/codesnap.nvim", build = "make" },
   -- {
   --   "dstein64/nvim-scrollview",
   -- },

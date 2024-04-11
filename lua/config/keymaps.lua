@@ -96,3 +96,7 @@ vim.keymap.set("n", "<Leader>ds", function()
   local widgets = require("dap.ui.widgets")
   widgets.centered_float(widgets.scopes)
 end)
+
+-- translate
+vim.keymap.set("n", "<Leader>tsl", ":1TranslateW<CR>")
+vim.keymap.set("v", "<Leader>tst", ":'<,'>TranslateW<CR>")
