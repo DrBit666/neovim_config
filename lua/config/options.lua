@@ -7,3 +7,6 @@ local opt = vim.opt
 opt.spelllang = { "en", "cjk" }
 
 opt.spelloptions = "camel"
+
+vim.opt.spell = true
+-- vim.opt.spelllang = { "en_us" }
