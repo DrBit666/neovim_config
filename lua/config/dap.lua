@@ -6,7 +6,7 @@ require("dap-go").setup({
   dap_configurations = {
     {
       type = "go",
-      name = "MeflowTest",
+      name = "Meflow",
       request = "launch",
       program = "./cmd/server/main.go",
     },
