@@ -11,6 +11,9 @@ return {
         { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
         { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
       },
+      dependencies = {
+        "nvim-neotest/nvim-nio"
+      },
       opts = {},
       config = function(_, opts)
         local dap = require("dap")
@@ -49,7 +52,7 @@ return {
       "folke/which-key.nvim",
       optional = true,
       opts = {
-        defaults = {
+        spec = {
           ["<leader>d"] = { name = "+debug" },
           ["<leader>da"] = { name = "+adapters" },
         },
