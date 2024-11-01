@@ -2,17 +2,6 @@ return {
   {
     "f-person/git-blame.nvim",
   },
-  -- {
-  --   "fatih/vim-go",
-  --   build = "GoInstallBinaries",
-  -- },
-  -- add symbols-outline
-  {
-    "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    config = true,
-  },
   {
     "karb94/neoscroll.nvim",
   },
@@ -22,7 +11,32 @@ return {
   {
     "voldikss/vim-translator",
   },
-  { "mistricky/codesnap.nvim", build = "make" },
+
+  -- {
+  --   "folke/trouble.nvim",
+  --   opts = {
+  --     modes = {
+  --       symbols = {
+  --         win = { position = "right", size = 0.3 },
+  --       },
+  --     },
+  --   },
+  -- },
+
+  -- { "nvimtools/none-ls.nvim" },
+
+  --fzf
+  -- {
+  --   "ibhagwan/fzf-lua",
+  --   -- optional for icon support
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  --   config = function()
+  --     -- calling `setup` is optional for customization
+  --     require("fzf-lua").setup({})
+  --   end,
+  -- },
+
+  -- 太卡了不要
   -- {
   --   "dstein64/nvim-scrollview",
   -- },
@@ -32,6 +46,8 @@ return {
   --     "tpope/vim-dadbod",
   --   },
   -- },
+
+  -- 用不了
   -- {
   --   "goolord/alpha-nvim",
   --   event = "VimEnter",
@@ -42,9 +58,9 @@ return {
   --     -- ]]
   --     local logo = [[
   --   ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
-  --   ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    
-  --   ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       
-  --   ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
+  --   ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z
+  --   ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z
+  --   ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z
   --   ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║
   --   ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝
   --   ]]

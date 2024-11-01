@@ -1,0 +1,23 @@
+-- 格式化.proto文件
+-- INFO:格式化后的文件格式与公司要求不一致，暂时不使用
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   pattern = "*.proto",
+--   callback = function()
+--     -- 使用系统命令调用 buf format
+--     local bufnr = vim.api.nvim_get_current_buf()
+--     local filename = vim.api.nvim_buf_get_name(bufnr)
+--     local handle = io.popen("buf format " .. filename)
+--     local result = handle:read("*a") -- 获取命令输出
+--     handle:close()
+--
+--     -- 如果有输出，打印出来
+--     -- if result and result ~= "" then
+--     --   print(result)
+--     -- end
+--
+--     -- 重新加载文件以反映格式化后的变化
+--     vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, vim.split(result, "\n"))
+--   end,
+-- })
+
+require("lspconfig").protols.setup({})

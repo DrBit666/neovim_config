@@ -40,16 +40,19 @@ keymap.set("n", "cpa", AbsolutePath, opts)
 -- keymap.set("n", "<Leader>gC", require("gitblame").copy_sha_to_clipboard, opts)
 
 -- neoscroll
-local t = {}
-t["<C-b>"] = { "scroll", { "-vim.wo.scroll", "true", "250" } }
-t["<C-f>"] = { "scroll", { "vim.wo.scroll", "true", "250" } }
-require("neoscroll.config").set_mappings(t)
+local scroll = require("neoscroll").scroll
+keymap.set("n", "<C-b>", function()
+  scroll(-25, { move_cursor = true, duration = 300, easing = "linear" })
+end, opts)
+keymap.set("n", "<C-f>", function()
+  scroll(25, { move_cursor = true, duration = 300, easing = "linear" })
+end, opts)
 
 -- window
--- keymap.set("n", "<C-F11>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
--- keymap.set("n", "<C-F12>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
-keymap.set("n", "<F11>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
-keymap.set("n", "<F12>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+keymap.set("n", "<C-F11>", "<cmd>vertical resize +2<cr>", { desc = "Increase window height" })
+keymap.set("n", "<C-F12>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window height" })
+-- keymap.set("n", "<F11>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+-- keymap.set("n", "<F12>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 keymap.set("n", "<F9>", generate_func_annotation)
 
@@ -98,5 +101,5 @@ vim.keymap.set("n", "<Leader>ds", function()
 end)
 
 -- translate
-vim.keymap.set("n", "<Leader>tsl", ":1TranslateW<CR>")
+vim.keymap.set("n", "<Leader>tsl", ":TranslateW<CR>")
 vim.keymap.set("v", "<Leader>tst", ":'<,'>TranslateW<CR>")
