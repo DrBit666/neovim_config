@@ -27,7 +27,7 @@ local opts = { noremap = true, silent = true }
 
 -- exit insert mode
 keymap.set({ "i", "v" }, "jk", "<esc>", opts)
--- better use clipboard
+-- better use clipboardkeyma
 -- keymap.set({ "n", "v" }, "Y", '"my', opts)
 -- keymap.set({ "n", "v" }, "P", '"mp', opts)
 keymap.set({ "n", "v" }, "<C-d>", '"md', opts)
@@ -41,11 +41,11 @@ keymap.set("n", "cpa", AbsolutePath, opts)
 
 -- neoscroll
 local scroll = require("neoscroll").scroll
-keymap.set("n", "<C-b>", function()
-  scroll(-25, { move_cursor = true, duration = 300, easing = "linear" })
+keymap.set({ "n", "v" }, "<C-b>", function()
+  scroll(-25, { move_cursor = true, duration = 300, easing = "sine" })
 end, opts)
-keymap.set("n", "<C-f>", function()
-  scroll(25, { move_cursor = true, duration = 300, easing = "linear" })
+keymap.set({ "n", "v" }, "<C-f>", function()
+  scroll(25, { move_cursor = true, duration = 300, easing = "sine" })
 end, opts)
 
 -- window
