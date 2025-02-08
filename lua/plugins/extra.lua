@@ -32,68 +32,27 @@ return {
     end,
   },
 
-  -- {
-  --   "stevearc/conform.nvim",
-  --   opts = {
-  --     formatters_by_ft = {
-  --       go = { "goimports", "gofumpt" },
-  --     },
-  --   },
-  -- },
+  {
+    "keaising/im-select.nvim",
+    config = function()
+      require("im_select").setup({
+        default_im_select = "com.apple.keylayout.ABC",
+        default_command = "im-select",
 
-  -- {
-  --   "folke/trouble.nvim",
-  --   opts = {
-  --     modes = {
-  --       symbols = {
-  --         win = { position = "right", size = 0.3 },
-  --       },
-  --     },
-  --   },
-  -- },
+        set_default_events = { "VimEnter", "FocusGained", "InsertLeave", "CmdlineLeave" },
 
-  --fzf
-  -- {
-  --   "ibhagwan/fzf-lua",
-  --   -- optional for icon support
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  --   config = function()
-  --     -- calling `setup` is optional for customization
-  --     require("fzf-lua").setup({})
-  --   end,
-  -- },
+        -- Restore the previous used input method state when the following events
+        -- are triggered, if you don't want to restore previous used im in Insert mode,
+        -- e.g. deprecated `disable_auto_restore = 1`, just let it empty
+        -- as `set_previous_events = {}`
+        set_previous_events = { "InsertEnter" },
 
-  -- 太卡了不要
-  -- {
-  --   "dstein64/nvim-scrollview",
-  -- },
-  -- {
-  --   "kristijanhusak/vim-dadbod-completion",
-  --   dependencies = {
-  --     "tpope/vim-dadbod",
-  --   },
-  -- },
+        -- Show notification about how to install executable binary when binary missed
+        keep_quiet_on_no_binary = false,
 
-  -- 用不了
-  -- {
-  --   "goolord/alpha-nvim",
-  --   event = "VimEnter",
-  --   opts = function()
-  --     local dashboard = require("alpha.themes.dashboard")
-  --     --   local logo = [[
-  --     --   顺     风     顺     水     顺     财     神
-  --     -- ]]
-  --     local logo = [[
-  --   ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
-  --   ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z
-  --   ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z
-  --   ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z
-  --   ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║
-  --   ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝
-  --   ]]
-  --
-  --     dashboard.section.header.val = vim.split(logo, "\n")
-  --     return dashboard
-  --   end,
-  -- },
+        -- Async run `default_command` to switch IM or not
+        async_switch_im = true,
+      })
+    end,
+  },
 }

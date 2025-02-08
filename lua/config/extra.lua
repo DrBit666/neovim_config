@@ -15,6 +15,8 @@ require("neo-tree").setup({
     mappings = {
       ["<space>"] = "none",
       ["Y"] = "copy_file_name",
+      ["l"] = "open",
+      ["h"] = "close_node",
     },
   },
   default_component_configs = {

@@ -6,5 +6,4 @@ require("config.lsp")
 
 vim.cmd.colorscheme("melange")
 vim.opt.termguicolors = true
-
 vim.g.codeium_disable_bindings = 1

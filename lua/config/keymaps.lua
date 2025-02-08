@@ -51,8 +51,6 @@ end, opts)
 -- window
 keymap.set("n", "<C-F11>", "<cmd>vertical resize +2<cr>", { desc = "Increase window height" })
 keymap.set("n", "<C-F12>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window height" })
--- keymap.set("n", "<F11>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
--- keymap.set("n", "<F12>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 keymap.set("n", "<F9>", generate_func_annotation)
 
@@ -103,3 +101,10 @@ end)
 -- translate
 vim.keymap.set("n", "<Leader>tsl", ":TranslateW<CR>")
 vim.keymap.set("v", "<Leader>tst", ":'<,'>TranslateW<CR>")
+
+-- copilot_chat
+vim.keymap.set({ "v", "n" }, "<Leader><F4>ec", ":CopilotChatExplainCN<CR>", { desc = "Explain code in Chinese" })
+-- vim.keymap.set({ "v", "n" }, "<Leader><F2>ee", ":CopilotChatExplain<CR>", { desc = "Explain code in English" })
+vim.keymap.set("n", "<Leader><F3>", ":CopilotChatOpen<CR>")
+vim.keymap.set("n", "<Leader><F4>cc", ":CopilotChatCommitCN<CR>")
+-- vim.keymap.set("n", "<Leader><F2>ce", ":CopilotChatCommit<CR>")
