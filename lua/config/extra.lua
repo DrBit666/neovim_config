@@ -9,7 +9,9 @@ require("neo-tree").setup({
     },
 
     bind_to_cwd = false,
-    follow_current_file = true,
+    follow_current_file = {
+      enabled = true,
+    },
   },
   window = {
     mappings = {
@@ -18,6 +20,7 @@ require("neo-tree").setup({
       ["l"] = "open",
       ["h"] = "close_node",
     },
+    width = 25,
   },
   default_component_configs = {
     indent = {
