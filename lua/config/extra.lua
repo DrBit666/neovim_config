@@ -19,6 +19,8 @@ require("neo-tree").setup({
       ["Y"] = "copy_file_name",
       ["l"] = "open",
       ["h"] = "close_node",
+      ["<C-f>"] = "",
+      ["<C-b>"] = "",
     },
     width = 25,
   },

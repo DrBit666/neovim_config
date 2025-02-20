@@ -42,10 +42,10 @@ keymap.set("n", "cpa", AbsolutePath, opts)
 -- neoscroll
 local scroll = require("neoscroll").scroll
 keymap.set({ "n", "v" }, "<C-b>", function()
-  scroll(-25, { move_cursor = true, duration = 300, easing = "sine" })
+  scroll(-25, { move_cursor = true, duration = 300, easing = "linear" })
 end, opts)
 keymap.set({ "n", "v" }, "<C-f>", function()
-  scroll(25, { move_cursor = true, duration = 300, easing = "sine" })
+  scroll(25, { move_cursor = true, duration = 300, easing = "linear" })
 end, opts)
 
 -- window

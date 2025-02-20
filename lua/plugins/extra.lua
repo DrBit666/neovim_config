@@ -11,7 +11,6 @@ return {
   {
     "voldikss/vim-translator",
   },
-
   {
     "nvimtools/none-ls.nvim",
     optional = true,
